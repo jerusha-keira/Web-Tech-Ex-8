@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+        <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <center><h1>Budget Calculator APP - <a href="index.html">HOME</a></h1></center>
+    <br><br><br>
+
+    <div class="container-fluid bg-white border-5 border-dark m-5" style="border: solid black 1px;">
+        <form class="form-horizontal">
+            
+            <div class="row justify-content-center align-items-center bg-info pb-1 pt-3 text-white">
+                <center><h1>
+                    Budget Calculator APP
+                </h1>
+                </center>
+            </div>
+            <br>
+            <center><h3 style="text-align: center;">Enter amount that you want to manage</h3></center><br>
+            <center><input style="width: 100px;" type="text" class="form-control" id="amount" ></center><br>
+                <center><h3 style="text-align: center;">How would you like to divide your amount ?</h3></center>
+                <div class="row">
+                    <div class="col-3">
+                        <label for="pwd"  >Room Rent (%): </label>
+                <input type="text"  id="rent" style="width: 100px; border: 1px solid black;" >
+                    </div>
+                    <div class="col-3">
+                        <label for="pwd"  >Accessories (%): </label>
+                <input type="text"  id="acc" style="width: 100px; border: 1px solid black;" >
+                    </div>
+                    <div class="col-3">
+                        <label for="pwd"  >Emergency (%): </label>
+                <input type="text"  id="emerg" style="width: 100px; border: 1px solid black;" >
+                    </div>
+                    <div class="col-3">
+                        <label for="pwd"  >Saving (%): </label>
+                <input type="text"  id="saving" style="width: 100px; border: 1px solid black;" >
+                    </div>
+                </div><br>
+                <center><button class="btn btn-primary" type="submit"  id="sub">Evaluate my money</button></center>
+                <br>
+                <div class="row">
+                    <div class="col-3">
+<p class="text text-bg-primary p-2" style="width: 100px;"  id="r">Room Rent <span id="trent"></span></p></div>
+<div class="col-3">
+    <p class="text text-bg-success p-2" style="width: 100px;" >Accessories <span id="tacc"></span></p></div>
+    <div class="col-3">
+        <p class="text text-bg-warning p-2" style="width: 100px;"  >Emergency <span id="temerg"></span></p></div>
+        <div class="col-3">
+            <p class="text text-bg-info p-2" style="width: 100px;" >Savings <span id="tsaving"></span></p></div>
+    </div>
+        </form>
+        <script>
+            $(document).ready(function(){
+                $('#rent').keyup(function(){
+                    var arent = (parseFloat($('#amount').val()) / 100) * parseFloat($('#rent').val());
+                    $('#trent').html('<center>\nRs.'+arent+'</center>');
+                });
+                $('#acc').keyup(function(){
+                    var aacc = (parseFloat($('#amount').val()) / 100) * parseFloat($('#acc').val());
+                    $('#tacc').html('<center>\nRs.'+aacc+'</center>');
+                });
+                $('#emerg').keyup(function(){
+                    var aemerg = (parseFloat($('#amount').val()) / 100) * parseFloat($('#emerg').val());
+                    $('#temerg').html('<center>\nRs.'+aemerg+'</center>');
+                });
+                $('#saving').keyup(function(){
+                    var asaving = (parseFloat($('#amount').val()) / 100) * parseFloat($('#saving').val());
+                    $('#tsaving').html('<center>\nRs.'+asaving+'</center>');
+                });
+                // console.clear();
+            });
+        </script>
+
+</body>
+</html>
